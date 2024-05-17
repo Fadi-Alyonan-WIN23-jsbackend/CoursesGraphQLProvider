@@ -16,7 +16,9 @@ var host = new HostBuilder()
         services.ConfigureFunctionsApplicationInsights();
         services.AddPooledDbContextFactory<DataContext>(x =>
         {
-            x.UseCosmos(Environment.GetEnvironmentVariable("COSMOS_URI")!, Environment.GetEnvironmentVariable("COSMOS_DBNAME")!)
+            x.UseCosmos(Environment.GetEnvironmentVariable("COSMOS_URI")!,
+                        Environment.GetEnvironmentVariable("COSMOS_KEY")!,
+                        Environment.GetEnvironmentVariable("COSMOS_DBNAME")!)
             .UseLazyLoadingProxies();
         });
 
