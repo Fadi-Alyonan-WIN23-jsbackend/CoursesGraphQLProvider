@@ -4,24 +4,28 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
-namespace CoursesGraphQLProvider.Functions;
-
-public class Playground(ILogger<Playground> logger)
+namespace CoursesProviderGraphQL.Functions
 {
-    private readonly ILogger<Playground> _logger = logger;
-
-    [Function("Playground")]
-    public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
+    public class Playground
     {
-        var response = req.CreateResponse();
-        response.Headers.Add("Content-Type", "text/html; charset=utf-8");
-        await response.WriteStringAsync(PlaygroundPage());
-        return response;
-    }
+        private readonly ILogger<Playground> _logger;
 
-    private string PlaygroundPage()
-    {
-        return @"
+        public Playground(ILogger<Playground> logger)
+        {
+            _logger = logger;
+        }
+
+        [Function("Playground")]
+        public async Task<IActionResult> RunAsync([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
+        {
+            var response = req.CreateResponse();
+            response.Headers.Add("Content-Type", "text/html; charset=utf-8");
+            await response.WriteStringAsync(PlaygroundPage());
+            return (IActionResult)response;
+        }
+        private string PlaygroundPage()
+        {
+            return @"
                 <!DOCTYPE html>
                 <html>
                 <head>
@@ -42,7 +46,6 @@ public class Playground(ILogger<Playground> logger)
                 </body>
                 </html>
                 ";
+        }
     }
-
-
 }
