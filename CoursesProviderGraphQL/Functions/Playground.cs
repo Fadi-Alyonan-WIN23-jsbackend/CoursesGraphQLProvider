@@ -16,12 +16,12 @@ namespace CoursesProviderGraphQL.Functions
         }
 
         [Function("Playground")]
-        public async Task<IActionResult> RunAsync([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
+        public async Task<HttpResponseData> RunAsync([HttpTrigger(AuthorizationLevel.Function, "get", Route = "graphql")] HttpRequestData req)
         {
             var response = req.CreateResponse();
             response.Headers.Add("Content-Type", "text/html; charset=utf-8");
             await response.WriteStringAsync(PlaygroundPage());
-            return (IActionResult)response;
+            return response;
         }
         private string PlaygroundPage()
         {

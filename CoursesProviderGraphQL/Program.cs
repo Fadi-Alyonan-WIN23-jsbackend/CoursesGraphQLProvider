@@ -20,6 +20,11 @@ var host = new HostBuilder()
                         Environment.GetEnvironmentVariable("COSMOS_DBNAME")!)
             .UseLazyLoadingProxies();
         });
+        var sp = services.BuildServiceProvider();
+        using var scope = sp.CreateScope();
+        var dbContextFactory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<DataContext>>();
+        using var context = dbContextFactory.CreateDbContext();
+        context.Database.EnsureCreated();
 
         services.AddScoped<ICourseService, CourseService>();
 
@@ -28,11 +33,7 @@ var host = new HostBuilder()
                 .AddMutationType<CourseMutation>()
                 .AddType<CourseType>();
 
-        var sp = services.BuildServiceProvider();
-        using var scope = sp.CreateScope();
-        var dbContextFactory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<DataContext>>();
-        using var context = dbContextFactory.CreateDbContext();
-        context.Database.EnsureCreated();
+        
     })
     .Build();
 
