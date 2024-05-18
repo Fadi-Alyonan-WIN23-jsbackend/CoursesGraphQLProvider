@@ -32,8 +32,8 @@ var host = new HostBuilder()
                 .AddQueryType<CourseQuery>()
                 .AddMutationType<CourseMutation>()
                 .AddType<CourseType>();
+        services.AddGraphQLServer();
 
-        
     })
     .Build();
 

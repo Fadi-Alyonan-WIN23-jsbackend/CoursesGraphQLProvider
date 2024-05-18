@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursesGraphQLProvider", "CoursesGraphQLProvider\CoursesGraphQLProvider.csproj", "{8420C981-7F57-4828-933C-57CAB56BECD1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseProvider.Infrastructure", "CourseProvider.Infrastructure\CourseProvider.Infrastructure.csproj", "{0A0E61C7-3DA9-4B37-8C36-34EE3C48FE24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoursesProviderGraphQL", "CoursesProviderGraphQL\CoursesProviderGraphQL.csproj", "{7A1878FC-AB42-417C-B821-13A4C21F758E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoursesProviderGraphQL", "CoursesProviderGraphQL\CoursesProviderGraphQL.csproj", "{7A1878FC-AB42-417C-B821-13A4C21F758E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8420C981-7F57-4828-933C-57CAB56BECD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8420C981-7F57-4828-933C-57CAB56BECD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8420C981-7F57-4828-933C-57CAB56BECD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8420C981-7F57-4828-933C-57CAB56BECD1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A0E61C7-3DA9-4B37-8C36-34EE3C48FE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A0E61C7-3DA9-4B37-8C36-34EE3C48FE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A0E61C7-3DA9-4B37-8C36-34EE3C48FE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
