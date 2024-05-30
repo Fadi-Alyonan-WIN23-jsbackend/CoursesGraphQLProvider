@@ -60,12 +60,12 @@ public static class CourseFactory
             Likes = request.Likes,
             Hours = request.Hours,
             Author = request.Author,
-            Prices = request.Prices == null ? null : new CoursePriceEntity
+            Prices = new CoursePriceEntity
             {
                 Price = request.Prices.Price,
                 Discount = request.Prices.Discount
             },
-            CourseContent = request.CourseContent == null ? null : new CourseContentEntity
+            CourseContent = new CourseContentEntity
             {
                 Description = request.CourseContent.Description,
                 Includes = request.CourseContent.Includes,
